@@ -13,6 +13,8 @@ import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
 import { Skeleton } from '../ui/skeleton';
 import { NoFileIcon } from '@/components/fyaa/no-file-icon';
+import { Checkbox } from '../ui/checkbox';
+import { PrivacyPolicy } from './privacy-policy';
 
 interface UploadedFile {
   file: File;
@@ -73,6 +75,7 @@ export function BeneficiaryUploader() {
   const [isUploading, setIsUploading] = useState(false);
   const { toast } = useToast();
   const [isMounted, setIsMounted] = useState(false);
+  const [privacyPolicyAccepted, setPrivacyPolicyAccepted] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
@@ -122,6 +125,16 @@ export function BeneficiaryUploader() {
       return;
     }
 
+      if (!privacyPolicyAccepted) {
+          toast({
+              variant: 'destructive',
+              title: 'خطأ',
+              description: 'يجب الموافقة على سياسة الخصوصية للمتابعة.',
+          });
+          return;
+      }
+
+
     setIsUploading(true);
     const formData = new FormData();
     formData.append('clientName', clientName);
@@ -156,6 +169,7 @@ export function BeneficiaryUploader() {
       setClientName('');
       setUploadedFiles({});
       setOpenItem(null);
+        setPrivacyPolicyAccepted(false);
 
     } catch (error: any) {
       toast({
@@ -273,9 +287,18 @@ export function BeneficiaryUploader() {
             />
           </AccordionItem>
         ))}
-      </Accordion>
+          </Accordion>
+          <div className="flex items-center space-x-2 space-x-reverse my-4 justify-center">
+              <Checkbox id="terms" checked={privacyPolicyAccepted} onCheckedChange={(checked) => setPrivacyPolicyAccepted(checked as boolean)} />
+              <label
+                  htmlFor="terms"
+                  className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+              >
+                  أوافق على <PrivacyPolicy />
+              </label>
+          </div>
       <div className="flex justify-center pt-4">
-        <Button onClick={handleUpload} disabled={isUploading}>
+              <Button onClick={handleUpload} disabled={isUploading || !privacyPolicyAccepted}>
           {isUploading ? 'جاري الإرسال...' : 'إرسال'}
         </Button>
       </div>
