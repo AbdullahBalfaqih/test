@@ -42,7 +42,7 @@ export function PrivacyPolicy() {
 
                 <div>
                 <h3 className="font-bold text-lg mb-2">
-                    أولاً: البيانات التي يتم جمعها:
+                    أولاً: البيانات التي يتم جمعها
                 </h3>
                 <p className="text-sm text-muted-foreground mb-2">
                     قد يقوم النظام بجمع ومعالجة البيانات التالية:
@@ -85,7 +85,7 @@ export function PrivacyPolicy() {
 
                 <div>
                 <h3 className="font-bold text-lg mb-2">
-                    ثالثاً: الوصول إلى البيانات والصلاحيات:
+                  ثالثاً: الوصول إلى البيانات والصلاحيات
                 </h3>
                 <p className="text-sm text-muted-foreground mb-2">
                     يتم الوصول إلى المرفقات والبيانات وفق نظام صلاحيات واضح، يشمل:
@@ -104,7 +104,7 @@ export function PrivacyPolicy() {
                 </div>
 
                 <div>
-                <h3 className="font-bold text-lg mb-2">رابعاً: حماية البيانات:</h3>
+                <h3 className="font-bold text-lg mb-2">رابعاً: حماية البيانات</h3>
                 <p className="text-sm text-muted-foreground mb-2">
                     يعتمد النظام على مجموعة من الإجراءات التقنية والتنظيمية لحماية
                     البيانات، من أبرزها:
@@ -121,7 +121,7 @@ export function PrivacyPolicy() {
 
                 <div>
                 <h3 className="font-bold text-lg mb-2">
-                    خامساً: مشاركة البيانات:
+                    خامساً: مشاركة البيانات
                 </h3>
                 <ul className="list-disc pr-6 text-sm text-muted-foreground space-y-1">
                     <li>
@@ -136,7 +136,7 @@ export function PrivacyPolicy() {
                 </div>
 
                 <div>
-                <h3 className="font-bold text-lg mb-2">سادساً: حقوق المستخدم:</h3>
+                <h3 className="font-bold text-lg mb-2">سادساً: حقوق المستخدم</h3>
                 <p className="text-sm text-muted-foreground mb-2">
                     يتمتع المستخدم بالحقوق التالية:
                 </p>
